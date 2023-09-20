@@ -26,7 +26,7 @@
   tasks:
 
     - name: Login to OLVM manager
-      ovirt_auth:
+      ovirt.ovirt.ovirt_auth:
         hostname: "{{ olvm_fqdn }}"
         username: "{{ olvm_user }}"
         password: "{{ olvm_password }}"
