@@ -38,6 +38,6 @@
       template_seal: true
       template_disk_interface: virtio_scsi
       template_type: server
-
-    roles:
-      - ovirt.image-template
+#
+#    roles:
+#      - ovirt.image-template
