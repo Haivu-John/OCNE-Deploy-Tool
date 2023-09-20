@@ -129,3 +129,6 @@
       ovirt_auth:
         ovirt_auth: "{{ ovirt_auth }}"
         state: absent
+  collections:
+    - ovirt.ovirt
+    - ansible.posix
