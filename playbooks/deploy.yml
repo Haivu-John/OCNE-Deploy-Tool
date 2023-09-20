@@ -16,7 +16,6 @@
 # yamllint disable
 ---
 
-- import_playbook: requirements.yml
 - import_playbook: download-disk.yml
 - import_playbook: template-create.yml
 - import_playbook: create_vm.yml
