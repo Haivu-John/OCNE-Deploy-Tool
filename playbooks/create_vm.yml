@@ -20,7 +20,9 @@
   gather_facts: false
   vars_files:
     - password.yml
-
+  collections:
+    - ovrit.ovrit
+    - ansible.posix
   tasks:
 
     - name: Login to OLVM manager

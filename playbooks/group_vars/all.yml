@@ -17,17 +17,17 @@
 #
 # OLVM and common VM details !!!Required!!!
 #
-olvm_cluster: <OLVM Cluster name in which the template and VMs will be created>
-olvm_template: <Template Name to be created and used>
-storage_domain: <Storage Domain Name where the template and VMs will be created>
+olvm_cluster: Default
+olvm_template: 
+storage_domain: NFS-Domain
 
 ## Specify the logical network !!!Required!!!
-vm_network: <Guest VM's logical network>
+vm_network: ovirtmgmt
 ## Example:
 # vm_network: ovirtmgmt
 
 ## Specify VNIC Profile of the logical network !!!Required!!!
-vm_network_profile: <VNIC Profile>
+vm_network_profile: ovirtmgmt
 ## Example:
 # vm_network_profile: ovirtmgmt
 
@@ -38,29 +38,29 @@ use_dhcp: false
 #
 # Cloud init variables  !!!Required!!!
 #
-vm_dns: <DN_SERVER_IP>
+vm_dns: 10.193.1.53
 vm_dns_domain: "search example.com"
-vm_gateway: <GATEWAY_IP>                   # Leave empty if using DHCP
-vm_netmask: <NETMASK>                      # Leave empty if using DHCP
-vm_timezone: <TIMEZONE>
-vm_chrony: "server <NTP_SERVER> iburst"
+vm_gateway: 10.193.1.1                   # Leave empty if using DHCP
+vm_netmask: 255.255.255.0                      # Leave empty if using DHCP
+vm_timezone: Asia/Ho_Chi_Minh
+vm_chrony: "server 2.rhel.pool.ntp.org iburst"
 
 #
 # Set use_proxy to 'true' if the environment is behind a proxy, else set to 'false' !!!Required!!!
 #
-use_proxy: true
+use_proxy: failse
 
 #
 # Proxy details. Leave empty if not using proxy.
 #
-my_https_proxy: "https://<PROXYSERVER>:<PORT>"
-my_http_proxy: "http://<PROXYSERVER>:<PORT>"
-my_no_proxy: "localhost,127.0.0.1,.example.com"
+my_https_proxy: 
+my_http_proxy: 
+my_no_proxy: 
 
 #
 # Template Disk download URL !!!Required!!!
 #
-disk_download_url: "<https://<SERVERNAME>/PATH/TO/DISK>"
+disk_download_url: "https://yum.oracle.com/templates/OracleLinux/OL8/u5/x86_64/OL8U5_x86_64-olvm-b107.qcow2"
 ## Example:
 ## For OL8
 ## disk_download_url: "https://yum.oracle.com/templates/OracleLinux/OL8/u5/x86_64/OL8U5_x86_64-olvm-b107.qcow2"
@@ -71,7 +71,7 @@ disk_download_url: "<https://<SERVERNAME>/PATH/TO/DISK>"
 #
 # Template Disk storage location !!!Required!!!
 #
-disk_location: "</PATH/TO/DOWNLOADED/QCOW2>"
+disk_location: "/tmp/OL8U5_x86_64-olvm-b107.qcow2"
 ## Example:
 ## disk_location: "/tmp/OL8U5_x86_64-olvm-b107.qcow2"
 ## OR
@@ -88,7 +88,7 @@ ol_version: "ol8"
 #
 # Container registry path to get the OLCNE component container images !!!Required!!!
 #
-container_registry: myregistry.com/olcne
+container_registry: container-registry.oracle.com/olcne
 ## Example:
 ## container_registry: container-registry.oracle.com/olcne
 
@@ -104,12 +104,12 @@ ha: true
 #
 # The virtual IP for an olcne-nginx load balancer !!!Required!!!
 #
-virtual_ip: <VIRTUAL_IP>
+virtual_ip: 10.193.1.105
 
 #
 # OCNE version to deploy !!!Required!!!
 #
-ocne_version: -X.X.X
+ocne_version: -1.22.8
 ## Example:
 ## ocne_version: -1.3.0
 
@@ -146,9 +146,9 @@ ocne_olm:
 #
 # Set the list of control plane and worker nodes
 #
-control_nodes: <CONTROLPLANE_NODE1_IP_OR_FQDN>:8090,<CONTROLPLANE_NODE2_IP_OR_FQDN>:8090,<CONTROLPLANE_NODE3_IP_OR_FQDN>:8090
-worker_nodes: <WORKER_NODE1_IP_OR_FQDN>:8090,<WORKER_NODE2_IP_OR_FQDN>:8090
-all_nodes: <CONTROLPLANE_NODE1_IP_OR_FQDN>,<CONTROLPLANE_NODE2_IP_OR_FQDN>,<CONTROLPLANE_NODE3_IP_OR_FQDN>
+control_nodes: 10.193.1.100:8090
+worker_nodes: 10.193.1.101:8090,10.193.1.102:8090
+all_nodes: 10.193.1.100,10.193.1.101,10.193.1.102
 
 # Nodes to add into an existing cluster.
 # add_nodes lists the nodes for certificate generation
