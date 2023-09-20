@@ -25,15 +25,15 @@
     - ansible.posix
   tasks:
 
-    - name: Login to OLVM manager
-      ovirt.ovirt.ovirt_auth:
-        hostname: "{{ olvm_fqdn }}"
-        username: "{{ olvm_user }}"
-        password: "{{ olvm_password }}"
-        ca_file: "{{ olvm_cafile | default(omit) }}"
-        insecure: "{{ olvm_insecure | default(true) }}"
-      tags:
-        - always
+    # - name: Login to OLVM manager
+    #   ovirt.ovirt.ovirt_auth:
+    #     hostname: "{{ olvm_fqdn }}"
+    #     username: "{{ olvm_user }}"
+    #     password: "{{ olvm_password }}"
+    #     ca_file: "{{ olvm_cafile | default(omit) }}"
+    #     insecure: "{{ olvm_insecure | default(true) }}"
+    #   tags:
+    #     - always
 
     - name: Create Virtual Machine(s)
       ovirt_vm:
