@@ -1,4 +1,6 @@
 ---
+roles:
+  - ovirt.image-template
 collections:
   - ansible.posix
   - ovirt.ovirt
